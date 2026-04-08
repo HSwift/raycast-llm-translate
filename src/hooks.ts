@@ -5,6 +5,10 @@ import { LanguageCode } from "./languages";
 import { LanguageCodeSet } from "./types";
 import { AUTO_DETECT } from "./simple-translate";
 
+function isSelectedTextUnavailableError(err: unknown) {
+  return err instanceof Error && err.message.includes("Unable to get selected text from frontmost application");
+}
+
 type _LegacySingleLanguageCodeSet = {
   langFrom: LanguageCode;
   langTo: LanguageCode;
@@ -38,7 +42,9 @@ export const useTextState = () => {
           }
         })
         .catch((err) => {
-          console.log("Error:", err);
+          if (!isSelectedTextUnavailableError(err)) {
+            console.error("Error getting selected text:", err);
+          }
         });
     }
   }, []);

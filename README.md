@@ -2,9 +2,9 @@
     <img src="./assets/google-translate.png" width="150" height="150" />
 </p>
 
-# Google Translate
+# LLM Translate
 
-This extension provides quick access to Google's Translate service.
+This extension provides quick access to LLM-powered translation.
 
 ## 🔧 Features
 
@@ -13,4 +13,7 @@ This extension provides quick access to Google's Translate service.
 
 ## ⚙️ Configuration
 
-- **Proxy**: Set an optional custom HTTP proxy URL for translation requests.
+- **Endpoint**: OpenAI-compatible API base URL (for example `https://api.openai.com/v1`).
+- **Model**: Model ID used for translation.
+- **Access Token**: Bearer token for your OpenAI-compatible API.
+- **Proxy**: Optional custom HTTP proxy URL for translation requests.

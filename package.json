@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "translate",
-  "title": "Google Translate",
-  "description": "Simple translation using Google Translate",
+  "name": "llm-translate",
+  "title": "LLM Translate",
+  "description": "Simple translation using LLM APIs",
   "icon": "google-translate.png",
   "author": "gebeto",
   "categories": [
@@ -28,42 +28,42 @@
     {
       "name": "translate",
       "title": "Translate",
-      "subtitle": "Google Translate",
-      "description": "Simple translation via Google Translate",
+      "subtitle": "LLM Translate",
+      "description": "Simple translation via LLM API",
       "mode": "view"
     },
     {
       "name": "translate-form",
       "title": "Translate Form",
-      "subtitle": "Google Translate",
-      "description": "Simple translation via Google Translate",
+      "subtitle": "LLM Translate",
+      "description": "Simple translation via LLM API",
       "mode": "view"
     },
     {
       "name": "quick-translate",
       "title": "Quick Translate",
-      "subtitle": "Google Translate",
+      "subtitle": "LLM Translate",
       "description": "Quickly translate to multiple languages",
       "mode": "view"
     },
     {
       "name": "instant-translate-copy",
       "title": "Instant Translate Copy",
-      "subtitle": "Google Translate",
+      "subtitle": "LLM Translate",
       "description": "Instantly translate selected text and copy to clipboard",
       "mode": "no-view"
     },
     {
       "name": "instant-translate-paste",
       "title": "Instant Translate Paste",
-      "subtitle": "Google Translate",
+      "subtitle": "LLM Translate",
       "description": "Instantly translate selected text and paste to active app",
       "mode": "no-view"
     },
     {
       "name": "instant-translate-view",
       "title": "Instant Translate View",
-      "subtitle": "Google Translate",
+      "subtitle": "LLM Translate",
       "description": "Instantly translate selected text with HUD display",
       "mode": "no-view"
     }
@@ -2111,6 +2111,29 @@
           "value": "paste"
         }
       ]
+    },
+    {
+      "name": "endpoint",
+      "title": "OpenAI-Compatible Endpoint",
+      "description": "Base URL of your OpenAI-compatible API (for example: https://api.openai.com/v1).",
+      "type": "textfield",
+      "required": false,
+      "default": "https://api.openai.com/v1"
+    },
+    {
+      "name": "model",
+      "title": "Model",
+      "description": "Model ID used for translation requests.",
+      "type": "textfield",
+      "required": false,
+      "default": "gpt-4o-mini"
+    },
+    {
+      "name": "accessToken",
+      "title": "Access Token",
+      "description": "Bearer token for your OpenAI-compatible API.",
+      "type": "password",
+      "required": false
     },
     {
       "name": "proxy",

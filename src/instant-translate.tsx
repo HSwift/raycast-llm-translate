@@ -2,6 +2,10 @@ import { getPreferenceValues, getSelectedText, showHUD } from "@raycast/api";
 import { simpleTranslate } from "./simple-translate";
 import { LanguageCode } from "./languages";
 
+function isSelectedTextUnavailableError(err: unknown) {
+  return err instanceof Error && err.message.includes("Unable to get selected text from frontmost application");
+}
+
 // Reading time per character based on average reading speed of ~200 words per minute
 const READING_TIME_PER_CHAR_MS = 150;
 
@@ -39,7 +43,9 @@ export async function baseInstantTranslate(onTranslated: (translatedText: string
 
     // Get the selected text from any active application
     const selectedText = await getSelectedText().catch((error) => {
-      console.error("Error getting selected text:", error);
+      if (!isSelectedTextUnavailableError(error)) {
+        console.error("Error getting selected text:", error);
+      }
       return "";
     });
 
